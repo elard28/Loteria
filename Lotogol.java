@@ -1,0 +1,3 @@
+class Lotogol implements Loteria {
+	
+}

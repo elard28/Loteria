@@ -1,0 +1,3 @@
+class Quina implements Loteria {
+	
+}
