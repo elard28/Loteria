@@ -24,4 +24,4 @@ class Loteria {
 	public void draw(String txt) throws Exception{
 		
 	}
-}
+} 
