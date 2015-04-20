@@ -59,18 +59,22 @@ class Quina {
 		while((s = br.readLine()) != null) 
 			draw = s.split(" ");
 		
+		fr.close();
+		br.close();
+		
 		success=new int[vec.size()];
 		
 		for (int i = 0; i < vec.size(); i++) 
 		{
-			String[] tmp = vec.elementAt(i);
+			String[] tmp= vec.elementAt(i);
 			for (int j = 0; j < tmp.length; j++) 
 			{
 				for (int k = 0; k < draw.length; k++) 
 				{
-					if(tmp[j]==draw[k])
+					//System.out.println("tmp["+j+"]="+tmp[j]+"  draw["+k+"]="+draw[k]);
+					if(Integer.parseInt(tmp[j]) == Integer.parseInt(draw[k]))
 					{
-						success[i]+=1;
+						success[i]++;
 						break;
 					}
 				}
@@ -83,6 +87,7 @@ class Quina {
 		
 		for (int i = 0; i < success.length; i++) 
 		{
+			//System.out.println("success["+i+"]="+success[i]);
 			switch(success[i])
 			{
 				case 5: quina+=1;
@@ -94,7 +99,9 @@ class Quina {
 			}
 		}
 		
-		
+		System.out.println("Quina "+quina);
+		System.out.println("Quadra "+quadra);
+		System.out.println("Terno "+terno);
 		
 	}
 	

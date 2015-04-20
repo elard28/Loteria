@@ -29,8 +29,13 @@ class Main
 		fr.close();
 		br.close();*/
 		
-		Quina q=new Quina("ejemplo-quina.txt");
-		q.print();
+		//Quina q=new Quina("ejemplo-quina.txt");
+		//q.print();
+		//q.draw("res-quina.txt");
+		
+		Lotogol lt=new Lotogol("ejemplo-lotogol.txt");
+		lt.print();
+		lt.draw("res-lotogol.txt");
 		
 	}
 }
