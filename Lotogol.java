@@ -62,7 +62,7 @@ class Lotogol extends Loteria{
 			{
 				for (int k = 0; k < draw.length; k+=2) 
 				{
-					if(tmp[j] == draw[k] && tmp[j+1] == draw[k+1])
+					if(tmp[j].equals(draw[k]) && tmp[j+1].equals(draw[k+1]))
 					{
 						success[i]+=1;
 						break;

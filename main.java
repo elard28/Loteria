@@ -6,28 +6,37 @@ class Main
 	public static void main(String[] args) throws Exception 
 	{	
 		Loteria lot = null;
+		String[] tok = null;
 		
-		System.out.println("Texto:");
-		
-		String entradaTeclado = "";
-		Scanner entradaEscaner = new Scanner (System.in);
-        entradaTeclado = entradaEscaner.nextLine(); //quina ejemplo-quina res-quina
-        String[] tok = entradaTeclado.split(" ");
+		if(args.length>0)
+			tok=args;
+				
+		else{
+			System.out.print("Texto: ");
+			String entrada = "";
+			Scanner entradaEscaner = new Scanner(System.in);
+	        entrada = entradaEscaner.nextLine(); 
+	        tok = entrada.split(" ");
+		}
         
-        switch(tok[0])
-        {
-        	case "quina": lot=new Quina(tok[1]+".txt");
-        		break;
-        	case "lotogol": lot=new Lotogol(tok[1]+".txt");
-        		break;
-        }
+		if(tok.length==3)
+		{
+			switch(tok[0])
+	        {
+	        	case "quina": lot=new Quina(tok[1]+".txt");
+	        		break;
+	        	case "lotogol": lot=new Lotogol(tok[1]+".txt");
+	        		break;
+	        }
+	        
+	        lot.print();
+	        lot.draw(tok[2]+".txt");
+		}
         
-        lot.print();
-        lot.draw(tok[2]+".txt");
-        
-		/*lot=new Quina("ejemplo-quina.txt");
-		lot.print();
-		lot.draw("res-quina.txt");*/
+		else System.out.println("Faltan argumentos");
 		
 	}
 }
+
+//quina ejemplo-quina res-quina
+//lotogol ejemplo-lotogol res-lotogol
