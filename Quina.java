@@ -79,14 +79,13 @@ class Quina extends Loteria {
 		
 		for (int i = 0; i < success.length; i++) 
 		{
-			//System.out.println("success["+i+"]="+success[i]);
 			switch(success[i])
 			{
-				case 5: quina+=1;
+				case 5: quina++;
 					break;
-				case 4: quadra+=1;
+				case 4: quadra++;
 					break;
-				case 3: terno+=1;
+				case 3: terno++;
 					break;
 			}
 		}
@@ -97,6 +96,5 @@ class Quina extends Loteria {
 		
 	}
 	
-	
-	
+		
 }

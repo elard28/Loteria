@@ -42,14 +42,6 @@ class Lotogol extends Loteria{
 		while((s = br.readLine()) != null) 
 			draw = s.split(" ");
 		
-		/*String[] draw=null;
-		int valor=fr.read();
-        while(valor!=-1)
-        {
-            System.out.print((char)valor);
-            valor=fr.read();
-        }*/
-		
 		fr.close();
 		br.close();
 		
@@ -60,15 +52,10 @@ class Lotogol extends Loteria{
 			String[] tmp= vec.elementAt(i);
 			for (int j = 1; j < tmp.length; j+=2) 
 			{
-				for (int k = 0; k < draw.length; k+=2) 
-				{
-					if(tmp[j].equals(draw[k]) && tmp[j+1].equals(draw[k+1]))
-					{
-						success[i]+=1;
-						break;
-					}
-				}
+				if(tmp[j].equals(draw[j-1]) && tmp[j+1].equals(draw[j]))
+					success[i]++;
 			}
+			
 		}
 		
 		int success5=0;
