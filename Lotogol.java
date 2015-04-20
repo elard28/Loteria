@@ -2,10 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Vector;
 
-class Lotogol {
-	Vector<String[]> vec=new Vector<String[]>(1,1);
-	double total=0;
-	int[] success;
+class Lotogol extends Loteria{
 	
 	public Lotogol(){
 		
@@ -29,15 +26,10 @@ class Lotogol {
 			vec.addElement(token);
 		}
 		
+		prize=total*0.267692;
 		
 		fr.close();
 		br.close();
-	}
-	
-	public void print()
-	{
-		System.out.println(total);
-		System.out.println(total*0.28);
 	}
 	
 	public void draw(String txt) throws Exception
@@ -49,6 +41,14 @@ class Lotogol {
 		
 		while((s = br.readLine()) != null) 
 			draw = s.split(" ");
+		
+		/*String[] draw=null;
+		int valor=fr.read();
+        while(valor!=-1)
+        {
+            System.out.print((char)valor);
+            valor=fr.read();
+        }*/
 		
 		fr.close();
 		br.close();
@@ -62,8 +62,7 @@ class Lotogol {
 			{
 				for (int k = 0; k < draw.length; k+=2) 
 				{
-					if(Integer.parseInt(tmp[j]) == Integer.parseInt(draw[k]) 
-					&& Integer.parseInt(tmp[j+1]) == Integer.parseInt(draw[k+1]))
+					if(tmp[j] == draw[k] && tmp[j+1] == draw[k+1])
 					{
 						success[i]+=1;
 						break;
@@ -78,20 +77,24 @@ class Lotogol {
 		
 		for (int i = 0; i < success.length; i++) 
 		{
-			switch(success[i])
+			String[] tmp= vec.elementAt(i);
+			for (int j = 0; j < Integer.parseInt(tmp[0]); j++) 
 			{
-				case 5: success5++;
-					break;
-				case 4: success4++;
-					break;
-				case 3: success3++;
-					break;
+				switch(success[i])
+				{
+					case 5: success5++;
+						break;
+					case 4: success4++;
+						break;
+					case 3: success3++;
+						break;
+				}
 			}
 		}
 		
-		System.out.println("1.- (5 aciertos) "+success5);
-		System.out.println("2.- (4 aciertos) "+success4);
-		System.out.println("3.- (3 aciertos) "+success3);
+		System.out.println("1.- (5 aciertos) "+success5+" "+Math.round(prize*0.4/success5*100.0)/100.0);
+		System.out.println("2.- (4 aciertos) "+success4+" "+Math.round(prize*0.3/success4*100.0)/100.0);
+		System.out.println("3.- (3 aciertos) "+success3+" "+Math.round(prize*0.3/success3*100.0)/100.0);
 		
 	}
 	

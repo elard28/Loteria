@@ -4,38 +4,30 @@ import java.util.*;
 class Main 
 {
 	public static void main(String[] args) throws Exception 
-	{
-		/*FileReader fr=new FileReader ("ejemplo-quina.txt");
-		BufferedReader br = new BufferedReader(fr);
-		String s;
-		Vector vec=new Vector(1,1);
-		String delims=" ";
+	{	
+		Loteria lot = null;
 		
-		while((s = br.readLine()) != null) 
-		{
-			String [] token = s.split(delims);
-			vec.addElement(token);
-		}
+		System.out.println("Texto:");
 		
-		for(int i=0; i<vec.size(); i++)
-		{
-			String[] tmp=(String[]) vec.elementAt(i);
-			
-			for (int j = 0; j < tmp.length; j++)
-			    System.out.print(tmp[j]+" ");
-			
-			System.out.println();
+		String entradaTeclado = "";
+		Scanner entradaEscaner = new Scanner (System.in);
+        entradaTeclado = entradaEscaner.nextLine(); //quina ejemplo-quina res-quina
+        String[] tok = entradaTeclado.split(" ");
+        
+        switch(tok[0])
+        {
+        	case "quina": lot=new Quina(tok[1]+".txt");
+        		break;
+        	case "lotogol": lot=new Lotogol(tok[1]+".txt");
+        		break;
         }
-		fr.close();
-		br.close();*/
-		
-		//Quina q=new Quina("ejemplo-quina.txt");
-		//q.print();
-		//q.draw("res-quina.txt");
-		
-		Lotogol lt=new Lotogol("ejemplo-lotogol.txt");
-		lt.print();
-		lt.draw("res-lotogol.txt");
+        
+        lot.print();
+        lot.draw(tok[2]+".txt");
+        
+		/*lot=new Quina("ejemplo-quina.txt");
+		lot.print();
+		lot.draw("res-quina.txt");*/
 		
 	}
 }

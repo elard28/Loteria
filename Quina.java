@@ -2,10 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Vector;
 
-class Quina {
-	Vector<String[]> vec=new Vector<String[]>(1,1);
-	double total=0;
-	int[] success;
+class Quina extends Loteria {
 	
 	public Quina(){
 		
@@ -39,14 +36,10 @@ class Quina {
 			vec.addElement(token);
 		}
 		
+		prize=total*0.308292682;
+		
 		fr.close();
 		br.close();
-	}
-	
-	public void print()
-	{
-		System.out.println(total);
-		System.out.println(total*0.308292682);
 	}
 	
 	public void draw(String txt) throws Exception
@@ -71,7 +64,6 @@ class Quina {
 			{
 				for (int k = 0; k < draw.length; k++) 
 				{
-					//System.out.println("tmp["+j+"]="+tmp[j]+"  draw["+k+"]="+draw[k]);
 					if(Integer.parseInt(tmp[j]) == Integer.parseInt(draw[k]))
 					{
 						success[i]++;
@@ -99,9 +91,9 @@ class Quina {
 			}
 		}
 		
-		System.out.println("Quina "+quina);
-		System.out.println("Quadra "+quadra);
-		System.out.println("Terno "+terno);
+		System.out.println("Quina "+quina+" "+Math.round(prize*0.35/quina*100.0)/100.0);
+		System.out.println("Quadra "+quadra+" "+Math.round(prize*0.25/quadra*100.0)/100.0);
+		System.out.println("Terno "+terno+" "+Math.round(prize*0.25/terno*100.0)/100.0);
 		
 	}
 	
